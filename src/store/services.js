@@ -3,71 +3,84 @@ const mobileOctstAPI = axios.create({
   baseURL: "https://mobile-oct1st-dev-12315-prod.herokuapp.com/",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
-function api_v1_customtext_list() {
+function api_v1_customtext_list(action) {
   return mobileOctstAPI.get(`/api/v1/customtext/`)
 }
-function api_v1_customtext_read() {
-  return mobileOctstAPI.get(`/api/v1/customtext/${id}/`)
+function api_v1_customtext_read(action) {
+  return mobileOctstAPI.get(`/api/v1/customtext/${action.id}/`)
 }
-function api_v1_customtext_update(requestBody) {
-  return mobileOctstAPI.put(`/api/v1/customtext/${id}/`, requestBody)
+function api_v1_customtext_update(action) {
+  return mobileOctstAPI.put(`/api/v1/customtext/${action.id}/`, {
+    data: action.data
+  })
 }
-function api_v1_customtext_partial_update(requestBody) {
-  return mobileOctstAPI.patch(`/api/v1/customtext/${id}/`, requestBody)
+function api_v1_customtext_partial_update(action) {
+  return mobileOctstAPI.patch(`/api/v1/customtext/${action.id}/`, {
+    data: action.data
+  })
 }
-function api_v1_homepage_list() {
+function api_v1_homepage_list(action) {
   return mobileOctstAPI.get(`/api/v1/homepage/`)
 }
-function api_v1_homepage_read() {
-  return mobileOctstAPI.get(`/api/v1/homepage/${id}/`)
+function api_v1_homepage_read(action) {
+  return mobileOctstAPI.get(`/api/v1/homepage/${action.id}/`)
 }
-function api_v1_homepage_update(requestBody) {
-  return mobileOctstAPI.put(`/api/v1/homepage/${id}/`, requestBody)
+function api_v1_homepage_update(action) {
+  return mobileOctstAPI.put(`/api/v1/homepage/${action.id}/`, {
+    data: action.data
+  })
 }
-function api_v1_homepage_partial_update(requestBody) {
-  return mobileOctstAPI.patch(`/api/v1/homepage/${id}/`, requestBody)
+function api_v1_homepage_partial_update(action) {
+  return mobileOctstAPI.patch(`/api/v1/homepage/${action.id}/`, {
+    data: action.data
+  })
 }
-function api_v1_login_create() {
+function api_v1_login_create(action) {
   return mobileOctstAPI.post(`/api/v1/login/`)
 }
-function api_v1_signup_create(requestBody) {
-  return mobileOctstAPI.post(`/api/v1/signup/`, requestBody)
+function api_v1_signup_create(action) {
+  return mobileOctstAPI.post(`/api/v1/signup/`, { data: action.data })
 }
-function rest_auth_login_create(requestBody) {
-  return mobileOctstAPI.post(`/rest-auth/login/`, requestBody)
+function rest_auth_login_create(action) {
+  return mobileOctstAPI.post(`/rest-auth/login/`, { data: action.data })
 }
-function rest_auth_logout_list() {
+function rest_auth_logout_list(action) {
   return mobileOctstAPI.get(`/rest-auth/logout/`)
 }
-function rest_auth_logout_create() {
+function rest_auth_logout_create(action) {
   return mobileOctstAPI.post(`/rest-auth/logout/`)
 }
-function rest_auth_password_change_create(requestBody) {
-  return mobileOctstAPI.post(`/rest-auth/password/change/`, requestBody)
+function rest_auth_password_change_create(action) {
+  return mobileOctstAPI.post(`/rest-auth/password/change/`, {
+    data: action.data
+  })
 }
-function rest_auth_password_reset_create(requestBody) {
-  return mobileOctstAPI.post(`/rest-auth/password/reset/`, requestBody)
+function rest_auth_password_reset_create(action) {
+  return mobileOctstAPI.post(`/rest-auth/password/reset/`, {
+    data: action.data
+  })
 }
-function rest_auth_password_reset_confirm_create(requestBody) {
-  return mobileOctstAPI.post(`/rest-auth/password/reset/confirm/`, requestBody)
+function rest_auth_password_reset_confirm_create(action) {
+  return mobileOctstAPI.post(`/rest-auth/password/reset/confirm/`, {
+    data: action.data
+  })
 }
-function rest_auth_registration_create(requestBody) {
-  return mobileOctstAPI.post(`/rest-auth/registration/`, requestBody)
+function rest_auth_registration_create(action) {
+  return mobileOctstAPI.post(`/rest-auth/registration/`, { data: action.data })
 }
-function rest_auth_registration_verify_email_create(requestBody) {
-  return mobileOctstAPI.post(
-    `/rest-auth/registration/verify-email/`,
-    requestBody
-  )
+function rest_auth_registration_verify_email_create(action) {
+  return mobileOctstAPI.post(`/rest-auth/registration/verify-email/`, {
+    data: action.data
+  })
 }
-function rest_auth_user_read() {
+function rest_auth_user_read(action) {
   return mobileOctstAPI.get(`/rest-auth/user/`)
 }
-function rest_auth_user_update(requestBody) {
-  return mobileOctstAPI.put(`/rest-auth/user/`, requestBody)
+function rest_auth_user_update(action) {
+  return mobileOctstAPI.put(`/rest-auth/user/`, { data: action.data })
 }
-function rest_auth_user_partial_update(requestBody) {
-  return mobileOctstAPI.patch(`/rest-auth/user/`, requestBody)
+function rest_auth_user_partial_update(action) {
+  return mobileOctstAPI.patch(`/rest-auth/user/`, { data: action.data })
 }
 export const apiService = {
   api_v1_customtext_list,
